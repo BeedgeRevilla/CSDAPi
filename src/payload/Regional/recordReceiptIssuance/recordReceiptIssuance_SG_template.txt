@@ -1,0 +1,28 @@
+{
+  "CreateReceiptRequest" : {
+    "receipt" : {
+      "paymentMethodCode" : "9",
+      "totalOriginalAmount" : "9712.18",
+      "totalOriginalCurrency" : "%currency%",
+      "paymentMethodType" : "A",
+      "bankCode" : "%bankCode%",
+      "paymentMethodDate" : "20221130",
+      "receiptNumber" : "%receiptNumber%",
+      "printOfficialReceiptInd" : "N",
+      "bankKey" : "AMEX",
+      "accountNumber" : "4087304898780987",
+      "paymentLineItem" : [ {
+        "subAccountCode" : "FG",
+        "subAccountType" : "PP",
+        "transactionDescription" : "E6060650/10",
+        "originalAmount" : "9712.18",
+        "policyNumber" : "%policyNumber%"
+      } ],
+      "payee" : {
+        "partyTypeCode" : "CN",
+        "partyId" : "%partyId%"
+      }
+    }
+  }
+}
+

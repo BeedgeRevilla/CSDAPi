@@ -1,0 +1,90 @@
+SELECT
+	DECODE(IS_DATE_DAPI(TO_CHAR(CLTDOB)),1,TO_DATE(TO_CHAR(CLTDOB),'YYYY-MM-DD'),TO_DATE('19000101','YYYY-MM-DD')) AS CLTDOB,
+	CN.CLTSEX,
+	(CN.LGIVNAME || CN.LSURNAME) AS PARTY_NAME,
+	CX.RINTERNET,
+	(
+		SELECT
+		XMLAgg
+			(
+			XMLElement
+				(
+				"party",
+					(
+					select
+					XMLElement
+					(
+					"telephoneContact",
+					XMLAgg
+					(
+					XMLElement
+					(
+					"telephoneContacts",
+					XMLFOREST
+					(
+						TELEPHONE_ADDR_TYPE_CD AS "telephoneAddressTypeCode",
+						REGEXP_REPLACE(TELEPHONE_NO,'[^0-9a-zA-Z]', '') AS "telephoneNumber"
+					)
+					)
+					)
+					)
+					FROM
+						(
+						SELECT
+							TELEPHONE_ADDR_TYPE_CD, TELEPHONE_NO
+						FROM
+						(
+							SELECT * FROM  MR_CLNTPF CN LEFT OUTER JOIN MR_CLEXPF CX ON CX.CLNTNUM=CN.CLNTNUM AND CN.CLNTCOY=CX.CLNTCOY
+							WHERE CN.CLNTNUM='%clientCode%'
+              AND CN.CLNTCOY='1'
+						)
+						UNPIVOT (TELEPHONE_NO FOR TELEPHONE_ADDR_TYPE_CD IN
+						(RMBLPHONE AS 'MOB',CLTPHONE02 AS 'OFF2',CLTPHONE01 AS 'OFF1')
+						)
+						WHERE REGEXP_REPLACE(TELEPHONE_NO,'[^0-9a-zA-Z]', '') IS NOT NULL
+						)
+					),
+				(
+					select
+					XMLElement
+					(
+					"physicalContact",
+					XMLAgg
+						(
+						XMLElement
+							(
+							"physicalContacts",
+							XMLFOREST
+								(
+
+								CLTADDR01 AS "addressLine4",
+								CLTADDR02 AS "addressLine1",
+								CLTADDR03 AS "addressLine2",
+								CLTADDR04 AS "addressLine3",
+								CLTPCODE AS "postalCode",
+								CLTADDR05 AS "stateRegionCode"
+								)
+							)
+						)
+					)
+					from
+					(
+						SELECT * FROM  MR_CLNTPF CN LEFT OUTER JOIN MR_CLEXPF CX ON CX.CLNTNUM=CN.CLNTNUM AND CN.CLNTCOY=CX.CLNTCOY
+						WHERE CN.CLNTNUM='%clientCode%' 
+            AND CN.CLNTCOY='1'
+					)
+				)
+
+				)
+			).getClobval()
+
+		from dual 
+	) as PARTY_XML_VALUE,
+	CN.LGIVNAME,
+	CN.LSURNAME
+
+FROM  MR_CLNTPF CN
+LEFT OUTER JOIN MR_CLEXPF CX ON CN.CLNTCOY=CX.CLNTCOY  AND CN.CLNTNUM=CX.CLNTNUM
+WHERE CN.CLNTNUM='%clientCode%'
+AND CN.CLNTCOY='1'
+AND CN.VALIDFLAG='1'

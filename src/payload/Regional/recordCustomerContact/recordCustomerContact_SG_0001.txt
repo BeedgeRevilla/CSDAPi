@@ -1,0 +1,35 @@
+{
+ "RecordCustomerContactRequest": {
+  "coreParty": {  
+   "coreDBPartyId":"920000001971948",
+   "partyId":"2019723",
+   "masterIndividualId": "2649141",
+   "telephoneContacts": [{
+     "telephoneAddressTypeCode": "FAX",
+     "telephoneNumber": "1122334455",
+		 "primaryFlag": "Y"
+    }
+   ],
+   "physicalContacts": [{
+     "physicalAddressTypeCode": "RES",
+     "addressLine1": "New Chu Kang Crescent1",
+     "addressLine2": "Singapore",
+     "addressLine3": "New1",
+     "addressLine4": "Khua1",
+     "addressLine5": "Rhua1",
+     "countryCode": "SIN",
+     "postalCode": "6836901",
+		 "primaryAddressFlag": "Y"
+    }],
+   "electronicContacts": [{
+    "electronicAddressTypeCode": "EML",
+    "electronicAddress": "new2649141@gmail1.com"
+   }]
+     },
+  "partyModificationParameter": [{
+   "idTYpe": "Policy",
+   "idValue": ["P1961266"],
+   "LOB": ""
+  }]
+ }
+}

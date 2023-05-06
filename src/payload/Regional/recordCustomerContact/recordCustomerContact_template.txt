@@ -1,0 +1,35 @@
+{
+ "RecordCustomerContactRequest": {
+  "coreParty": {  
+   "coreDBPartyId":"%coreDBPartyId%",
+   "partyId":"%partyId%",
+   "masterIndividualId": "%masterIndividualId%",
+   "telephoneContacts": [{
+     "telephoneAddressTypeCode": "%telephoneAddressTypeCode%",
+     "telephoneNumber": "%telephoneNumber%",
+     "primaryFlag": "%primaryFlag%"
+    }
+   ],
+   "physicalContacts": [{
+     "physicalAddressTypeCode": "%physicalAddressTypeCode%",
+     "addressLine1": "%addressLine1%",
+     "addressLine2": "%addressLine2%",
+     "addressLine3": "%addressLine3%",
+     "addressLine4": "%addressLine4%",
+     "addressLine5": "%addressLine5%",
+     "countryCode": "%countryCode%",
+     "postalCode": "%postalCode%",
+     "primaryAddressFlag": "%primaryAddressFlag%"
+    }],
+   "electronicContacts": [{
+    "electronicAddressTypeCode": "%electronicAddressTypeCode%",
+    "electronicAddress": "%electronicAddress%"
+   }]
+     },
+  "partyModificationParameter": [{
+   "idTYpe": "%idTYpe%",
+   "idValue": ["%idValue%"],
+   "LOB": ""
+  }]
+ }
+}

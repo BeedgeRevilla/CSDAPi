@@ -1,0 +1,40 @@
+SELECT
+AGNTPFX                ,
+AGNTCOY                ,
+AGNTNUM                ,
+ACCOUNT_RECONCILIATION ,
+CRLIMIT                ,
+CREDTERM               ,
+EXPIRY_NOTICE          ,
+LICENCE                ,
+RIDESC                 ,
+RLRPFX                 ,
+RLRCOY                 ,
+RLRACC                 ,
+STLBASIS               ,
+STATEMENT_REQD         ,
+START_DATE             ,
+DATEEND                ,
+ZSTMTOSIND             ,
+ZTOFLG                 ,
+ACCSRC                 ,
+AGTLICNO               ,
+ZGCLMTFLG              ,
+ZBUSLINE               ,
+ZSOB                   ,
+ZECODE                 ,
+ZOAGNTNUM              ,
+ZCOMBRANCH             ,
+ZLNEBSNS               ,
+USER_PROFILE           ,
+JOB_NAME               ,
+DATIME                 
+FROM
+MR_AGPLPF AGPL
+WHERE 
+AGNTNUM= '%agentCode%'  /*VALUE OF POLICY NUMBER*/
+AND AGNTCOY= '1'  /*VALUE OF COMPANY CODE*/
+--AND TO_NUMBER(TO_CHAR(TO_DATE('01-10-2016','DD-MM-YYYY'), 'YYYYMMDD'))>=START_DATE  /*VALUE OF EFFECTIVE DATE*/
+--AND TO_NUMBER(TO_CHAR(TO_DATE('01-10-2016','DD-MM-YYYY'), 'YYYYMMDD'))<=DATEEND  /*VALUE OF EXPIRATION DATE*/
+--AND DTEEFF<>0 AND DTETER<>99999999 
+--AND VALID_FLAG='1'

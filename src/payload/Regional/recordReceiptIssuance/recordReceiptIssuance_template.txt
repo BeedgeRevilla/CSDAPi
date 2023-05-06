@@ -1,0 +1,43 @@
+{
+  "CreateReceiptRequest": {
+    "receipt": {
+      "paymentMethodCode": "9",
+      "bankCode": "%bankCode%",
+      "paymentMethodDate": "20191121",
+      "totalOriginalCurrency": "%currency%",
+      "totalOriginalAmount": "16500",
+      "pendingReceiptInd": "N",
+      "printOfficialReceiptInd": "N",
+      "bankKey": "MASTER",
+      "accountNumber": "123456XXXXXX1234",
+      "chequeNumber": "T06968",
+      "payee": {
+        "partyTypeCode": "AG",
+        "Account": [
+          {
+            "PSEADebitAccounts": {
+              "branchCode": "%branchCode%"
+            }
+          }
+        ],
+        "partyId": "%partyId%",
+        "marriedFlag": "N"
+      },
+      "exchangeRate": "1",
+      "totalAccountingAmount": "",
+      "totalAccountingCurrency": "",
+      "paymentMethodType": "M",
+      "receiptNumber": "%receiptNumber%",
+      "paymentLineItem": [
+        {
+          "originalAmount": "16500",
+          "subAccountType": "PP",
+          "policyNumber": "%policyNumber%",
+          "accountingAmount": "",
+          "transactionDescription": "",
+          "subAccountCode": "FG"
+        }
+      ]
+    }
+  }
+}

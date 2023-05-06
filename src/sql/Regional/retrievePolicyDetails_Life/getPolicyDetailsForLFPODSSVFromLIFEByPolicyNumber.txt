@@ -1,0 +1,6 @@
+select
+K77CSV
+from
+mr_lfpodssv
+where
+K77PNO =?     /* INPUT POLICY NUMBER */ 

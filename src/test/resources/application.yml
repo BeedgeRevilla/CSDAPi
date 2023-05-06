@@ -1,0 +1,130 @@
+apis:
+  ebxp-retrieve-account-details: "https://a-lake-api-uat.axa-hk-dev-int.pink.ap-southeast-1.aws.openpaas.axa-cloud.com/api/eb-portal/accounts"
+  alake-retrieve-account-details: "https://alake-customer-bapi.axa-hk-dev-int.pink.ap-southeast-1.aws.openpaas.axa-cloud.com/customers"
+  ebxp-retrieve-policy-list: "https://a-lake-api-uat.axa-hk-dev-int.pink.ap-southeast-1.aws.openpaas.axa-cloud.com/api/eb-portal/policyInformation"
+  alake-retrieve-policy-list: "https://alake-policy-bapi.axa-hk-dev-int.pink.ap-southeast-1.aws.openpaas.axa-cloud.com/policies"
+  ebxp-retrieve-policy-information: "https://a-lake-api-uat.axa-hk-dev-int.pink.ap-southeast-1.aws.openpaas.axa-cloud.com/api/eb-portal/policyInformation/{policyHolderNo}"
+  alake-retrieve-policy-information: "https://alake-policy-bapi.axa-hk-dev-int.pink.ap-southeast-1.aws.openpaas.axa-cloud.com/policies"
+
+hkal:
+  retrieve-exchange-rate: "http://10.144.66.146:5500/ws/reference-business-apis-v2/references/exchangeRates"
+  retrieve-exchange-rate-dev: "http://10.144.66.146:5500/ws/reference-business-apis-v2/references/exchangeRates"
+  retrieve-exchange-rate-db-conn: "10.144.128.51:1521/MDCACHDI"
+  retrieve-exchange-rate-db-user: "L_HK_CACHE"
+  retrieve-exchange-rate-db-ma-user: "L_MA_CACHE"
+  retrieve-exchange-rate-db-pwd: "Uk2tH6S#wxcp4PXC"
+
+nit:
+  regional-notify-document: "https://10.144.65.125:8460/ws/ap-businessapi-common-documentservices-vs"
+  regional-retrieve-claim-list: "https://preprodapwsg.axa-tech.com:10443/PPE1/customer-api/claim/v2/claims"
+  regional-retrieve-claim-details: "https://preprodapwsg.axa-tech.com:10443/PPE3/life-api/claim/v2/claims/{claimNumber}"
+  regional-retrieve-account-details: "https://preprodapwsg.axa-tech.com:10443/PPE2/pnc-api/policy/v2/policies/payments/accounts/{policyNumber}"
+  regional-retrieve-account-details-life: "https://preprodapwsg.axa-tech.com:10443/PPE3/life-api/policy/v2/policies/payments/accounts/{policyNumber}"
+  regional-retrieve-policy-list: "https://preprodapwsg.axa-tech.com:10443/PPE1/customer-api/policy/v2/policies"
+  regional-retrieve-policy-details: "https://preprodapwsg.axa-tech.com:10443/PPE1/customer-api/policy/v2/policies/{policyNumber}"
+  regional-retrieve-document-list: "https://preprodapwsg.axa-tech.com:10443/PPE1/document-api/common/v2/documents"
+  regional-retrieve-agent-details: "https://preprodapwsg.axa-tech.com:10443/PPE2/pnc-api/agent/v2/agents/{agentCode}"
+  regional-retrieve-customer-list: "https://preprodapwsg.axa-tech.com:10443/PPE1/customer-api/customer/v2/customers"
+  regional-retrieve-fund-list: "https://preprodapwsg.axa-tech.com:10443/PPE3/life-api/policy/v2/policies/funds"
+  regional-retrieve-document-details: "https://preprodapwsg.axa-tech.com:10443/PPE1/document-api/common/v2/documents/{documentID}"
+  regional-record-customer: "https://preprodapwsg.axa-tech.com:10443/customer-api/customer/v2/customers"
+  regional-record-customer-contact: "https://preprodapwsg.axa-tech.com:10443/PPE1/customer-api/customer/v2/customers/contacts"
+  regional-record-document: "https://preprodapwsg.axa-tech.com:10443/document-api/common/v2/documents"
+  regional-record-receipt-issuance: "https://preprodapwsg.axa-tech.com:10443/PPE1/customer-api/policy/v2/policies/receipts/ "
+
+sit:
+  regional-retrieve-policy-details: "http://10.144.66.125:5500/rest/AXAAsia_BusinessAPI_Life/restsvc/policy/policies/{policyNumber}"
+
+qa:
+  regional-retrieve-policy-details: "https://preprodapwsg.axa-tech.com:10443/customer-api/policy/v2/policies/{policyNumber}"
+
+ppe3:
+  regional-retrieve-policy-details: "https://preprodapwsg.axa-tech.com:10443/PPE3/life-api/policy/v2/policies/{policyNumber}"
+
+filenet:
+  sg-retrieve-document-list: "http://10.144.70.41:9080/SCRMWebServicesSG1/services/SCRMDocumentManagementServices?wsdl"
+  my-retrieve-document-list: "http://10.144.70.41:9080/SCRMWebServicesMY1/services/SCRMDocumentManagementServices?wsdl"
+  ph-retrieve-document-list: "http://10.144.70.41:9080/SCRMWebServicesPH1/services/SCRMDocumentManagementServices?wsdl"
+  th-retrieve-document-list: "http://10.144.70.41:9080/SCRMWebServicesTH1/services/SCRMDocumentManagementServices?wsdl"
+  hk-retrieve-document-list: "http://10.144.70.41:9080/SCRMWebServicesHK1/services/SCRMDocumentManagementServices?wsdl"
+
+db:
+  sg-mdcac7qi: "10.144.128.195:1521/MDCAC7QI"
+  sg-l-sg-cache: "L_SG_CACHE"
+  sg-g-sg-cache: "G_SG_CACHE"
+  sg-ga-sg-cache: "GA_SG_CACHE"
+  th-mdcac2qi: "10.144.128.46:1521/MDCAC2QI"
+  th-mdcac6qi: "10.144.128.46:1521/MDCAC6QI"
+  th-mdcac7qi: "10.144.128.195:1521/MDCAC7QI"
+  th-l-th-cache: "L_TH_CACHE"
+  th-g-th-cust: "G_TH_CUST"
+  hk-mdcac2qi: "10.144.128.46:1521/MDCAC2QI"
+  hk-mdcrpp2i: "10.144.128.204:1521/MDCRPP2I"
+  hk-mdcrpp2i-204: "10.144.128.204:1521/MDCRPP2I"
+  hk-l-hk-cache: "L_HK_CACHE"
+  ph-mdcac2qi: "10.144.128.46:1521/MDCAC2QI"
+  ph-mdcrpp2i: "10.144.128.46:1521/MDCRPP2I"
+  ph-l-ph-cache: "L_PH_CACHE"
+  cache-password: "68Sh4exjSXOMxXPv6eTDfHu7tSDmL05I+wUYXAZNEF8="
+  sg-mdcor7qi: "10.144.128.120:1521/MDCOR7QI"
+  sg-g-sg-cust: "G_SG_CUST"
+  hk-mdcor2qi: "10.144.128.47:1521/MDCOR2QI"
+  hk-mdcor7qi: "10.144.128.120:1521/MDCOR7QI"
+  hk-g-hk-cust: "G_HK_CUST"
+  ph-mdcor7qi: "10.144.128.120:1521/MDCOR7QI"
+  ph-mdcor8qi: "10.144.128.120:1521/MDCOR8QI"
+  ph-g-ph-cust: "G_PH_CUST"
+  ph-l-ph-cust: "L_PH_CUST"
+  th-mdcor6qi: "10.144.128.47:1521/MDCOR6QI"
+  th-mdcor3qi: "10.144.128.47:1521/MDCOR3QI"
+  th-l-th-cust: "L_TH_CUST"
+  my-mdcor7qi: "10.144.128.120:1521/MDCOR7QI"
+  my-g-my-cust: "G_MY_CUST"
+  core-password: "8NwO1HPLqr+/Oa2G8g0Pb+gk0brIF7HxfNYySWgEPpA="
+  server-name:
+    server_46: "10.144.128.46"
+    server_47: "10.144.128.47"
+    server_120: "10.144.128.120"
+    server_195: "10.144.128.195"
+    server_204: "10.144.128.204"
+  database-name:
+    MDCAC2QI: "MDCAC2QI"
+    MDCAC6QI: "MDCAC6QI"
+    MDCAC7QI: "MDCAC7QI"
+    MDCOR2QI: "MDCOR2QI"
+    MDCOR6QI: "MDCOR6QI"
+    MDCOR7QI: "MDCOR7QI"
+    MDCOR8QI: "MDCOR8QI"
+    MDCRPP2I: "MDCRPP2I"
+  user:
+    G_HK_CUST: "G_HK_CUST"
+    G_MY_CUST: "G_MY_CUST"
+    G_PH_CUST: "G_PH_CUST"
+    G_SG_CACHE: "G_SG_CACHE"
+    G_SG_CUST: "G_SG_CUST"
+    G_TH_CUST: "G_TH_CUST"
+    GA_SG_CACHE: "GA_SG_CACHE"
+    L_HK_CACHE: "L_HK_CACHE"
+    L_PH_CACHE: "L_PH_CACHE"
+    L_PH_CUST: "L_PH_CUST"
+    L_SG_CACHE: "L_SG_CACHE"
+    L_TH_CACHE: "L_TH_CACHE"
+    L_TH_CUST: "L_TH_CUST"
+  password:
+    cache: "68Sh4exjSXOMxXPv6eTDfHu7tSDmL05I+wUYXAZNEF8="
+    core: "8NwO1HPLqr+/Oa2G8g0Pb+gk0brIF7HxfNYySWgEPpA="
+
+psea-server:
+  host: 10.144.151.189
+  port: 23
+  sg:
+    username: HCUSG02
+    password: hcusgx02
+  my:
+    username: DSUTCOE01
+    password: welcome1
+
+
+user-credentials:
+  username: SCTCOE01
+  password: qwerty@1

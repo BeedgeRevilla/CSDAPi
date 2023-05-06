@@ -1,0 +1,287 @@
+SELECT
+	CLIST.CORE_DB_PARTY_ID,
+	CLIST.SOURCE_SYSTEM_PARTY_ID, 
+	CLIST.SOURCE_SYSTEM_CODE ,
+	CLIST.ENTITY_CODE,
+	CLIST.COMPANY_CODE ,
+	CLIST.PARTY_TYPE_CODE ,                      
+	CLIST.PARTY_STAT_CODE , 
+	CLIST.FIRST_NAME,                            
+	CLIST.LAST_NAME  ,                           
+	CLIST.DISPLAY_NAME_FORMAT ,                 
+	CLIST.LOCAL_FIRST_NAME,                      
+	CLIST.LOCAL_LAST_NAME,
+	CLIST.LOCAL_DISPLAY_NAME_FORMAT,
+	CLIST.STD_GENDER_CODE,                          
+	CLIST.BIRTH_DATE   ,                         
+	CLIST.FORM_60_FLAG ,                        
+	CLIST.IDENTITY_PROOF_INDICATOR,                  
+	CLIST.SALUTATION_TEXT,                      
+	CLIST.STD_MARITAL_STAT_CODE,                     
+	CLIST.STD_NATIONALITY_CODE ,                      
+	CLIST.STD_GEO_DEMOGRAPHIC_CODE ,                  
+	CLIST.COUNTRY_OF_RESIDENCE_CODE ,             
+	CLIST.STD_OCCUPATION_CLASS_CODE ,                
+	CLIST.DECEASED_FLAG,                        
+	CLIST.DEATH_DATE,                            
+	CLIST.ALERT_RECEIVER_NAME ,                  
+	CLIST.SOURCE_OF_INCOME,                    
+	CLIST.ANNUAL_INCOME_AMOUNT ,                  
+	CLIST.ANNUAL_INCOME_AMNT_RANGE_CODE,
+	CLIST.STD_EDUCATION_LEVEL_CODE  ,                 
+	CLIST.HEIGHT_IN_METER,                       
+	CLIST.WEIGHT_IN_KILOGRAM,                        
+	CLIST.STAFF_NUMBER,                              
+	CLIST.STAFF_FLAG,                             
+	CLIST.STD_PRIMARY_LANGUAGE_CODE  ,                     
+	CLIST.STD_SPECIAL_NEED_CODE ,                       
+	CLIST.STD_PREFFERED_CONTACT_MTHD_CD ,
+	CLIST.MIDDLE_NAME,                           
+	CLIST.SMOKING_HABIT ,                      
+	CLIST.SPECIAL_CASE_CODE ,                       
+	CLIST.BANKRUPTCY_FLAG ,                    
+	CLIST.FRAUD_CODE ,                           
+	CLIST.LOCAL_MIDDLE_NAME ,                    
+	CLIST.VIP_FLAG,
+	CASE WHEN CLIST.SOURCE_SYSTEM_CODE='GASIA'
+	THEN (SELECT MV.MDM_ID FROM V_SRC_PKEY_OBJECT_MDM_ID_MAP MV WHERE MV.ENTITY_CD= SUBSTR(PARTY_BK,1,4) AND MV.PARTY_ID=SUBSTR(TO_CHAR(PARTY_BK),6))
+	ELSE (SELECT MV.MDM_ID FROM V_SRC_PKEY_OBJECT_MDM_ID_MAP MV WHERE MV.ENTITY_CD= SUBSTR(PARTY_BK,1,3) AND MV.PARTY_ID=SUBSTR(TO_CHAR(PARTY_BK),5)) 
+	END AS MASTER_INDIVIDUAL_ID,
+	CLIST.TELEPHONE_NO ,
+        CLIST.TELEPHONE_ADDR_TYPE_CD,
+	--CLIST.ID_DOC_NO,
+	CLIST.PARTY_XML_VALUE,
+	CLIST.ID_DOC_XML_VALUE,
+	CLIST.S_TAX_APPLICABILITY_IND,
+	CLIST.ELECTRONIC_ADDR
+	
+	
+
+FROM
+(
+ SELECT                          
+	CL.PARTY_RK                 	AS CORE_DB_PARTY_ID,
+	CL.PARTY_ID                    AS SOURCE_SYSTEM_PARTY_ID, 
+	CL.SOURCE_SYSTEM_CD            AS SOURCE_SYSTEM_CODE ,
+	CL.ENTITY_CD                   AS ENTITY_CODE,
+	CL.COMPANY_CD                  AS COMPANY_CODE ,
+	CL.PARTY_TYPE_CD               AS PARTY_TYPE_CODE ,                  
+	CL.PARTY_STAT_CD               AS PARTY_STAT_CODE ,          
+	CL.FIRST_NM                    AS FIRST_NAME,                               
+	CL.LAST_NM                     AS LAST_NAME  ,                             
+	CL.DISPLAY_NM_FORMAT           AS DISPLAY_NAME_FORMAT ,                    
+	CL.LOCAL_FIRST_NM              AS LOCAL_FIRST_NAME,                  
+	CL.LOCAL_LAST_NM               AS LOCAL_LAST_NAME,         
+	CL.LOCAL_DISPLAY_NM_FORMAT     AS LOCAL_DISPLAY_NAME_FORMAT,
+	CL.GENDER_CD                   AS GENDER_CODE  , 
+	CL.STD_GENDER_CD               AS STD_GENDER_CODE,                             
+	CL.BIRTH_DT                    AS BIRTH_DATE   ,                           
+	CL.FORM_60_FLG                 AS FORM_60_FLAG ,                                
+	CL.IDENTITY_PROOF_IND          AS IDENTITY_PROOF_INDICATOR,                
+	CL.SALUTATION_TXT              AS SALUTATION_TEXT,                   
+	CL.MARITAL_STAT_CD             AS MARITAL_STAT_CODE,           
+	CL.STD_MARITAL_STAT_CD         AS STD_MARITAL_STAT_CODE,             
+	CL.NATIONALITY_CD              AS NATIONALITY_CODE ,                
+	CL.STD_NATIONALITY_CD          AS STD_NATIONALITY_CODE ,             
+	CL.GEO_DEMOGRAPHIC_CD          AS GEO_DEMOGRAPHIC_CODE ,                
+	CL.STD_GEO_DEMOGRAPHIC_CD      AS STD_GEO_DEMOGRAPHIC_CODE ,                     
+	CL.COUNTRY_OF_RESIDENCE_CD     AS COUNTRY_OF_RESIDENCE_CODE ,        
+	CL.OCCUPATION_CLASS_CD         AS OCCUPATION_CLASS_CODE ,            
+	CL.STD_OCCUPATION_CLASS_CD     AS STD_OCCUPATION_CLASS_CODE ,                 
+	CL.DECEASED_FLG                AS DECEASED_FLAG,                            
+	CL.DEATH_DT                    AS DEATH_DATE,                               
+	CL.ALERT_RECEIVER_NM           AS ALERT_RECEIVER_NAME ,                   
+	CL.SOURCE_OF_INCOME            AS SOURCE_OF_INCOME,                          
+	CL.ANNUAL_INCOME_AMT           AS ANNUAL_INCOME_AMOUNT ,             
+	CL.ANNUAL_INCOME_RANGE_CD      AS ANNUAL_INCOME_AMNT_RANGE_CODE,   
+	CL.EDUCATION_LEVEL_CD          AS EDUCATION_LEVEL_CODE  ,   
+	CL.STD_EDUCATION_LEVEL_CD      AS STD_EDUCATION_LEVEL_CODE  ,                   
+	CL.HEIGHT_IN_MTR               AS HEIGHT_IN_METER,                              
+	CL.WEIGHT_IN_KG                AS WEIGHT_IN_KILOGRAM,                           
+	CL.STF_NO                      AS STAFF_NUMBER,                              
+	CL.STF_FLG                     AS STAFF_FLAG,                        
+	CL.PRIMARY_LANG_CD             AS PRIMARY_LANGUAGE_CODE ,                 
+	CL.STD_PRIMARY_LANG_CD         AS STD_PRIMARY_LANGUAGE_CODE  ,       
+	CL.SPCL_NEED_CD                AS SPECIAL_NEED_CODE  ,                   
+	CL.STD_SPCL_NEED_CD            AS STD_SPECIAL_NEED_CODE ,               
+	CL.PREF_CONTACT_METHOD_CD      AS PREFFERED_CONTACT_METHOD_CODE ,    
+	CL.STD_PREF_CONTACT_METHOD_CD  AS STD_PREFFERED_CONTACT_MTHD_CD ,
+	CL.MIDDLE_NM                   AS MIDDLE_NAME,                            
+	CL.SMOKING_HABIT               AS SMOKING_HABIT ,                              
+	CL.SPCL_CASE_CD                AS SPECIAL_CASE_CODE ,                     
+	CL.BANKRUPTCY_FLAG             AS BANKRUPTCY_FLAG ,                         
+	CL.FRAUD_CD                    AS FRAUD_CODE ,                              
+	CL.LOCAL_MIDDLE_NM             AS LOCAL_MIDDLE_NAME ,                
+	CL.VIP_FLAG                    AS VIP_FLAG  ,  
+	CL.PARTY_BK					   AS PARTY_BK	,
+	CL.TELEPHONE_NO 			 AS TELEPHONE_NO	,
+        CL.STD_TELE_ADDR_TYPE_CD                 AS TELEPHONE_ADDR_TYPE_CD,
+	--CL.ID_DOC_NO				 AS ID_DOC_NO,
+		(	
+		SELECT 
+			XMLAgg
+			(
+				XMLElement
+				(
+					"PARTY",				
+					(
+						SELECT 
+							XMLElement
+							(	
+								"PHYSICALCONTACT",
+								XMLAgg
+								(
+									XMLElement
+									(
+										"PHYSICALCONTACTS",
+										XMLFOREST
+										(
+											 
+											 PC.ADDR_LINE_1 AS "ADDRESS_LINE_1",
+											 PC.ADDR_LINE_2 AS "ADDRESS_LINE_2",
+											 PC.ADDR_LINE_3 AS "ADDRESS_LINE_3",
+											 PC.ADDR_LINE_4 AS "ADDRESS_LINE_4",
+											 PC.ADDR_LINE_5 AS "ADDRESS_LINE_5", 
+											 PC.POSTAL_CD AS "POSTAL_CODE",
+											 PC.STD_COUNTRY_CD AS "COUNTRY_CODE",
+											 PC.STD_PHY_ADDR_TYPE_CD AS "PHYSICAL_ADDRESS_TYPE_CODE"
+										)
+									)
+								)
+							)
+						FROM 
+						PHYSICAL_CONTACT PC 
+						WHERE PC.PARTY_RK=CL.PARTY_RK
+					)
+				)
+			).getClobval() 
+			FROM DUAL
+		) AS "PARTY_XML_VALUE",
+		ID_DOC_XML_VALUE,
+		CL.S_TAX_APPLICABILITY_IND		AS S_TAX_APPLICABILITY_IND,
+		CL.ELECTRONIC_ADDR				AS ELECTRONIC_ADDR,
+	ROWNUM AS RNUM
+	FROM
+	(
+
+	SELECT
+			
+			P.PARTY_RK,
+			P.PARTY_ID, 
+			P.SOURCE_SYSTEM_CD ,
+			P.ENTITY_CD,
+			P.COMPANY_CD ,
+			P.PARTY_TYPE_CD ,                      
+			P.PARTY_STAT_CD, 
+			P.FIRST_NM,                            
+			P.LAST_NM  ,                           
+			DECODE(P.DISPLAY_NM_FORMAT,'LAST_NAME+FIRST_NAME','1','FIRST_NAME+LAST_NAME','2',NULL) AS DISPLAY_NM_FORMAT,                
+			P.LOCAL_FIRST_NM,                      
+			P.LOCAL_LAST_NM,
+			P.LOCAL_DISPLAY_NM_FORMAT,
+			P.GENDER_CD ,
+			P.STD_GENDER_CD,                          
+			P.BIRTH_DT   ,                         
+			P.FORM_60_FLG ,                        
+			P.IDENTITY_PROOF_IND,                  
+			P.SALUTATION_TXT,                      
+			P.MARITAL_STAT_CD,
+			P.STD_MARITAL_STAT_CD,                     
+			P.NATIONALITY_CD,
+			P.STD_NATIONALITY_CD,                      
+			P.GEO_DEMOGRAPHIC_CD,
+			P.STD_GEO_DEMOGRAPHIC_CD,                  
+			P.COUNTRY_OF_RESIDENCE_CD,             
+			P.OCCUPATION_CLASS_CD, 
+			P.STD_OCCUPATION_CLASS_CD,                
+			P.DECEASED_FLG,                        
+			P.DEATH_DT,                            
+			P.ALERT_RECEIVER_NM ,                  
+			P.SOURCE_OF_INCOME,                    
+			P.ANNUAL_INCOME_AMT ,                  
+			P.ANNUAL_INCOME_RANGE_CD,
+			P.EDUCATION_LEVEL_CD ,
+			P.STD_EDUCATION_LEVEL_CD ,                 
+			P.HEIGHT_IN_MTR,                       
+			P.WEIGHT_IN_KG,                        
+			P.STF_NO,                              
+			P.STF_FLG,                             
+			P.PRIMARY_LANG_CD,
+			P.STD_PRIMARY_LANG_CD ,                     
+			P.SPCL_NEED_CD ,
+			P.STD_SPCL_NEED_CD,                       
+			P.PREF_CONTACT_METHOD_CD, 
+			P.STD_PREF_CONTACT_METHOD_CD,
+			P.MIDDLE_NM,                           
+			P.SMOKING_HABIT ,                      
+			P.SPCL_CASE_CD ,                       
+			P.BANKRUPTCY_FLAG ,                    
+			P.FRAUD_CD ,                           
+			P.LOCAL_MIDDLE_NM ,                    
+			P.VIP_FLAG,
+			PS.PARTY_BK,
+			TELEPHONE_NO,
+                        TC.STD_TELE_ADDR_TYPE_CD,
+			(	
+			SELECT 
+				XMLAgg
+				(
+				XMLElement
+				(
+					"PARTY",				
+					(
+						SELECT 
+							XMLElement
+							(	
+								"PARTYIDENTIFER",
+								XMLAgg
+								(
+									XMLElement
+									(
+										"PARTYIDENTIFERS",
+										XMLFOREST
+										(
+												ID_DOC_TYPE_CD,
+												ID_DOC_NO
+										)
+									)
+								)
+							)
+						FROM 
+						PARTY_IDENTIFIER PI 
+						WHERE PI.PARTY_RK=P.PARTY_RK
+					)
+				)
+			).getClobval() 
+			FROM DUAL  
+		) AS "ID_DOC_XML_VALUE",
+		P.S_TAX_APPLICABILITY_IND,
+		EC.ELECTRONIC_ADDR
+		--${whereConditionForEntityFirst}
+			
+
+			FROM PARTY P 
+			LEFT OUTER JOIN PARTY_SK PS
+			ON P.PARTY_RK = PS.PARTY_RK
+			LEFT OUTER JOIN TELEPHONE_CONTACT TC
+			ON TC.PARTY_RK=P.PARTY_RK
+			LEFT OUTER JOIN ELECTRONIC_CONTACT EC
+			ON EC.PARTY_RK=P.PARTY_RK
+			AND EC.STD_ELEC_ADDR_TYPE_CD ='EML'
+			WHERE
+		    EXISTS 
+(
+	SELECT * FROM
+		(	SELECT * FROM PARTY_IDENTIFIER 
+			WHERE ID_DOC_TYPE_CD='SECURITYNO' 											 /* Input ID Document Type code */
+			AND   SRCH_ID_DOC_NO = UPPER(REGEXP_REPLACE(REVERSE('%idDocumentNumber%'), '[^0-9A-Za-z]', ''))
+		)PID 
+	WHERE PID.PARTY_RK=P.PARTY_RK
+)  AND ROWNUM <= 50 --%count%
+			
+		)CL
+		--${whereConditionForEntitySecond}
+		
+		
+) CLIST
+WHERE RNUM >=  1   ORDER BY CONCAT(CLIST.CORE_DB_PARTY_ID, CLIST.TELEPHONE_ADDR_TYPE_CD)  ASC

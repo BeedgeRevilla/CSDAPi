@@ -1,0 +1,48 @@
+SELECT 
+	CLNTPFX           ,
+	CLNTCOY           ,
+	CLNTNUM           ,
+	CURRFROM          ,
+	CURRTO            ,
+	CLNTREL           ,
+	VALIDFLAG         ,
+	BILLDATE01        ,
+	BILLDATE02        ,
+	BILLDATE03        ,
+	BILLDATE04        ,
+	BILLAMT01         ,
+	BILLAMT02         ,
+	BILLAMT03         ,
+	BILLAMT04         ,
+	REMITTYPE         ,
+	NEWRQST           ,
+	FACTHOUS          ,
+	BANKKEY           ,
+	BANKACCKEY        ,
+	BANKACCDSC        ,
+	BNKACTYP          ,
+	CURRCODE          ,
+	DD_TRAN_CODE      ,
+	SCTYCDE           ,
+	ZCEXYR            ,
+	ZCEXMN            ,
+	ZJHLDNME          ,
+	ZJHLDID           ,
+	ZCCBNKRF          ,
+	USER_PROFILE      ,
+	JOB_NAME          ,
+	DATIME 
+FROM MR_CLBAPF CLBA
+WHERE CLNTPFX='CN'
+AND VALIDFLAG='1'
+AND CLNTCOY=? /* CLIENT COMPANY CODE*/
+AND CLNTNUM=? /* CLIENT NUMBER OF PAYEE */
+AND CURRFROM<=TO_NUMBER(TO_CHAR(SYSDATE,'YYYYMMDD'))/*VALUE OF TODAY'S DATE*/
+AND CURRTO>TO_NUMBER(TO_CHAR(SYSDATE,'YYYYMMDD')) /*VALUE OF TODAY'S DATE*/
+--AND TRIM(BNKACTYP) /* FILTERING THE BANK ACCOUNT TYPE is commented out */
+--IN ( 	SELECT TRIM(A.ITEMITEM)
+--		FROM MR_ITEMPF A 
+--		WHERE 
+--		SUBSTR(TRIM(GENAREA),1,1)='B' 
+--		AND A.ITEMTABL='TR338'
+--	)

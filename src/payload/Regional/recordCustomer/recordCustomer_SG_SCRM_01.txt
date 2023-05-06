@@ -1,0 +1,51 @@
+{
+
+"RecordCustomerRequest": {
+
+  "coreParty": { 
+
+   "coreDBPartyId":"920000000190592",
+
+   "partyId":"0194078",
+
+   "masterIndividualId": "742299",
+
+   "birthDate":  "1993-06-19",
+
+   "firstName": "John",
+
+   "genderCode": "M",
+
+   "idDocumentNumber": "S4603490B",
+
+   "idDocumentTypeCode": "SECUITYNO",
+
+   "lastName": "Kellerman",
+
+   "middleName": "Orteza",
+
+   "localFirstName": "John",
+
+   "localLastName": "Kellerman",
+
+   "salutationText": "MR",
+
+   "primaryLanguageCode": "C",
+
+   "marketableFlag": "AO"
+
+   },
+
+  "partyModificationParameter": [{
+
+   "idTYpe": "Policy",
+
+   "idValue": ["Q0002749"],
+
+   "LOB": ""
+
+  }]
+
+}
+
+}

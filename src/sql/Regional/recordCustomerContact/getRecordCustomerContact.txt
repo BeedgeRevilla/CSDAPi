@@ -1,0 +1,6 @@
+SELECT * 
+FROM electronic_contact a
+	inner join physical_contact b
+	on a.PARTY_RK = b.PARTY_RK
+WHERE a.source_system_cd = '%sourceSystem%' 
+	and a.PARTY_RK = '%coreDBPartyId%'

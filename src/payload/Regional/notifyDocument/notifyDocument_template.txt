@@ -1,0 +1,49 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://schemas.axa.asia/canonical/1" xmlns:env="http://aems.corp.intraxa/eip/2016/02/schemas/envelope" xmlns:axa="http://LAQEIP97/AXAAsia_BusinessAPI_Common.ws.provider:documentServices" xmlns:ns1="http://asia.axa.com/cdm/Document/Messages/2.0">
+   <soap:Header>
+      <ns:contextHeader>
+         <env:contextHeader>
+            <!--Optional:-->
+            <env:serviceName>ap-businessapi-common-documentservices</env:serviceName>
+            <!--Optional:-->
+            <env:mep>Synchronous</env:mep>
+            <!--Optional:-->
+            <env:messaging>
+               <!--Optional:-->
+               <env:messageName>notifyDocument</env:messageName>
+               <!--Optional:-->
+               <env:messageID>NotifyDoc_%targetSystem%_%timeStamp%</env:messageID>
+            </env:messaging>
+            <!--Optional:-->
+            <env:customData>
+               <!--Zero or more repetitions:-->
+               <env:property key="countryCD" audit="?">%countryCD%</env:property>
+			   <env:property key="lobCD" audit="?">%lobCD%</env:property>
+			   <env:property key="entityCD" audit="?">%entityCD%</env:property>
+			   <env:property key="sourceSystem" audit="?">FileNet</env:property>
+			   <env:property key="targetSystem" audit="?">%targetSystem%</env:property>
+               <!--Optional:-->
+               <env:data>?</env:data>
+            </env:customData>
+         </env:contextHeader>
+      </ns:contextHeader>
+   </soap:Header>
+   <soap:Body>
+      <axa:notifyDocument>
+         <notifyDocumentRequest>
+            <ns1:NotifyDocumentRequest>
+               <!--Optional:-->
+               <documentMetadata>
+                  <!--Optional:-->
+                  <name>DocumentServices.xsd</name>
+                  <!--Optional:-->
+                  <namespaceURI>http://www.w3.org/2001/XMLSchema</namespaceURI>
+                  <!--Optional:-->
+                  <documentContent>PERvY3VtZW50U2VydmljZXM+DQogICAgPERvY3VtZW50Pg0KICAgICAgICA8VEFSR0VUU1lTVEVNPlNDUk08L1RBUkdFVFNZU1RFTT4NCiAgICAgICAgPE1JTUVUWVBFPmFwcGxpY2F0aW9uL3BkZjwvTUlNRVRZUEU+DQogICAgICAgIDxET0NVTUVOVFRJVExFPkNoZXF1ZW9yQ2FzaGllck9yZGVyQ29weTwvRE9DVU1FTlRUSVRMRT4NCiAgICAgICAgPElEPns4OTExNDFEQS02Q0FDLTRBMDktODBENi03ODIwNTk3Q0ZEM0V9PC9JRD4NCiAgICAgICAgPERPQ1VNRU5UVFlQRT5XRklET0M8L0RPQ1VNRU5UVFlQRT4NCiAgICAgICAgPENSRUFUSU9OREFURT4yMC0wMi0yMDE5IDE3OjU4OjEyPC9DUkVBVElPTkRBVEU+DQogICAgICAgIDxQT0xJQ1lOVU1CRVI+NTAyLTE0ODYxNDY8L1BPTElDWU5VTUJFUj4NCiAgICAgICAgPElOU1VSRUROQU1FPlRDOSBBRC00IFdJRkU8L0lOU1VSRUROQU1FPg0KICAgICAgICA8UFJPQ0VTU1RZUEU+TkJVPC9QUk9DRVNTVFlQRT4NCiAgICAgICAgPENBUlRPTk5VTUJFUj48L0NBUlRPTk5VTUJFUj4NCiAgICAgICAgPFBSSU1BUllET0M+WUVTPC9QUklNQVJZRE9DPg0KICAgICAgICA8UFJPRFVDVFRZUEU+VEw8L1BST0RVQ1RUWVBFPg0KICAgICAgICA8RU5USVRZPlNHPC9FTlRJVFk+DQogICAgICAgIDxWSVA+PC9WSVA+DQogICAgICAgIDxQUklPUklUWT4wPC9QUklPUklUWT4NCiAgICAgICAgPEJBQ0tGSUxMPjwvQkFDS0ZJTEw+DQogICAgICAgIDxXT1JLVFlQRT5ORVdBUFBMSUNBVElPTjwvV09SS1RZUEU+DQogICAgICAgIDxDSEFOTkVMPkFHPC9DSEFOTkVMPg0KICAgICAgICA8REFURUNSRUFURUQ+MjAtMDItMjAxOSAxODowMDo0MjwvREFURUNSRUFURUQ+DQogICAgICAgIDxDQVNFUkVGRVJFTkNFTlVNQkVSPjwvQ0FTRVJFRkVSRU5DRU5VTUJFUj4NCiAgICAgICAgPERPQ1VNRU5URkxBRz5OTzwvRE9DVU1FTlRGTEFHPg0KICAgIDwvRG9jdW1lbnQ+DQo8L0RvY3VtZW50U2VydmljZXM+</documentContent>
+               </documentMetadata>
+               <!--Optional:-->
+               <notifyOperationIndicator>AddDoc</notifyOperationIndicator>
+            </ns1:NotifyDocumentRequest>
+         </notifyDocumentRequest>
+      </axa:notifyDocument>
+   </soap:Body>
+</soap:Envelope>
